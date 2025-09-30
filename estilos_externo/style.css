@@ -67,3 +67,8 @@ input {
     box-shadow: 0px 3px 3px #30303069;
     border-radius: 20px;
 }
+
+.login_button:hover {
+    background: linear-gradient(to bottom, #ffffff, #ececec);
+    box-shadow: 0px 4px 4px #30303069;
+}
