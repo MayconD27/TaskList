@@ -17,9 +17,48 @@
             <img class="icon mt-50" src="../images/icons/icon_login.png" alt="icone de login" >
             <input type="text" name="" id="user" placeholder="Nome do usuario" class="mt-50">
             <input type="password" name="" id="pass" placeholder="Senha" class="mt-20">
-            <button class="login_button mt-50">Entrar</button>
+            <button id="login-btn" class="login_button mt-50">Entrar</button>
+            <p id="warning" class="mt-20"></p>
         </div>
     </div>
+
+    <script>
+        document.getElementById("login-btn").addEventListener('click', async () => {
+            const user = document.getElementById("user").value;
+            const pass = document.getElementById("pass").value;
+
+            if (user === "" || pass === ""){
+                document.getElementById("warning").innerText = "Preencha todos os campos";
+                document.getElementById("warning").style.display = "block";
+                return;
+            }
+
+            try{
+                const response = await fetch('../controller/login_auth.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username: user, password: pass, action: 'login' })
+                });
+
+                const data = await response.json();
+
+                if (data.sucess){
+                    window.location.href = 'home.php';
+                } else {
+                    document.getElementById("warning").innerText = data.message;
+                    document.getElementById("warning").style.display = "block";
+                }
+            }
+            catch (error){
+                console.error('Error:', error);
+                document.getElementById("warning").innerText = "Erro na conexao com o servidor";
+                document.getElementById("warning").style.display = "block";
+            }
+        });
+    </script>
+
 </body>
 
 </html>
