@@ -1,12 +1,12 @@
 <?php
     $host = 'localhost';
     $port = '';
-    $db   = 'fullstack';
+    $db   = 'task_list';
     $user = 'root';
     $pass = '';
     $charset = 'utf8mb4';
 
-    $db = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
+    $bd = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 
 
     $options = [

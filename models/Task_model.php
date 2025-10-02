@@ -1,8 +1,8 @@
 <?php
     include_once "/settings/db.php";
     class Task {
-        function __constructor{
-            $this->db = $db;  
+        function __construct(){
+            $this->db = $pdo;  
         }
     }
 ?>
