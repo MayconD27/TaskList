@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->foreignId('usuario_id') ->nullable()->constrained('usuarios')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('setor_id')->nullable()->constrained('setores')->nullOnDelete()->cascadeOnUpdate();
             $table->foreignId('projeto_id')->nullable()->constrained('projetos')->nullOnDelete()->cascadeOnUpdate();
-            $table->date('data_criacao')->nullable();
             $table->integer('delete_flag')->default(0);
             $table->timestamps();
         });

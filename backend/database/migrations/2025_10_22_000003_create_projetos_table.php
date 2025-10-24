@@ -11,7 +11,6 @@ return new class extends Migration {
             $table->string('titulo', 50);
             $table->enum('status', ['feito', 'fazendo', 'pendente', 'em_progresso', 'concluido']);
             $table->text('descricao')->nullable();
-            $table->date('data_criacao')->nullable();
             $table->integer('delete_flag')->default(0);
             $table->timestamps();
         });
